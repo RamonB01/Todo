@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="" id="formulario">
+        <label for="">Peso (kg)</label>
+        <input type="number" name="peso" id="peso"><br>
+        <label for="">Altura (mts)</label>
+        <input type="number" name="altura" id="altura" min="0" step="0.01"><br>
+        <button type="submit">Calcular IMC</button>
+    </form>
+
+    <script>
+        const formulario = $("formulario")
+        const peso = $("peso")
+        const altura = $("altura")
+        
+        formulario.addEventListener("submit", (e) => {
+            e.preventDefault()
+            alert("IMC: "+calcIMC())
+        })
+        
+
+        function calcIMC(){
+            let altura2 = parseFloat(altura.value)**2
+            let imc2 = parseFloat(peso.value) / altura2
+
+            console.log(altura2)
+            console.log(imc2)
+            console.log(peso.value)
+            console.log(altura.value)
+            return imc2
+        }
+
+        function $(elemento){
+            return document.getElementById(elemento)
+        }
+    </script>
+</body>
+</html>

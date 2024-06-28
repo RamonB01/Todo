@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10</title>
+</head>
+<body>
+    <form action="" id="formulario">
+
+        <label id="nombreT">Nombre: </label>
+        <input type="text" id="nombre" name="nombre"><br>
+        
+        <label id="apellidoT" >Apellido: </label>
+        <input type="text" id="apellido" name="apellido"><br>
+        
+        <label id="edadT">Edad: </label>
+        <input type="number" min="0" name="edad" id="edad"><br>
+        
+        <button id="boton" type="submit" >Enviar</button>
+        <p id="val">Validación</p>
+    </form>
+    <script>
+        
+        const formulario = $("formulario")
+        const val = $("val")
+        const edad = $("edad")
+
+        formulario.addEventListener("submit", (e) => {
+            e.preventDefault();
+        })
+
+        formulario.addEventListener("focusout", ()=> {
+            val.style.color = "red"
+            if (formulario["nombre"].value === "")
+                {val.textContent = "Nombre Vacio"}
+            else if (formulario["apellido"].value === "")
+                {val.textContent = "Apellido Vacio"}
+            else if (formulario["edad"].value === "")
+                {val.textContent = "Edad Vacia"}
+            else if (formulario["edad"].value < 18 )
+                {val.textContent = "No puede ser Menos de edad"}
+            else {val.textContent = "Todo Correcto"; val.style.color = "green"}
+
+        })
+
+
+        function $(elemento) {
+            return document.getElementById(elemento);
+        }
+    </script>
+</body>
+</html>

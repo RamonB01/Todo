@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+
+    <h1>Listado de Persona</h1>
+    <ol id="listado"></ol>
+
+    <script>
+        const personas = ["Pepe", "Maria", "Juan", "Pedro", "Cacho"];
+
+        const listado = $("listado")
+
+        const nuevoArreglo = personas.map((persona) => {
+            const item = document.createElement("li")
+            item.textContent = persona
+            listado.appendChild(item)
+            return persona // con return persona devuelve el array en la consola con los nombres
+        });
+
+        console.log(nuevoArreglo)
+
+        function $(elemento) {
+            return document.getElementById(elemento);
+        }
+    </script>
+</body>
+</html>

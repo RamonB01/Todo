@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+
+    <h1>Listado de Persona</h1>
+    <form action="" id="formulario">
+        <label for="nombre">Nombre: </label>
+        <input type="text" name="" id="nombre">
+        <button type="submit">Agregar</button>
+    </form>
+    <ol id="listado"></ol>
+
+    <script>
+        const personas = ["Pepe", "Maria", "Juan", "Pedro", "Cacho"];
+/*
+        const nuevoArreglo = personas.map((persona) => {
+            const item = document.createElement("li")
+            const boton = document.createElement("button")
+            item.textContent = persona
+            boton.textContent = persona
+            listado.appendChild(item)
+            return persona // con return persona devuelve el array en la consola con los nombres
+        });*/
+
+        const formulario = $("formulario")
+        const nombre = $("nombre")
+        const listado = $("listado")
+        
+        formulario.onsubmit = (e) => {
+            if (nombre.value !== "" ) {
+                const item = document.createElement("li")
+                const itemName = nombre.value
+                item.textContent = itemName
+                nombre.value = ""
+
+                const eliminar = document.createElement("button")
+                eliminar.textContent = "X"
+                eliminar.onclick = () => {
+                    if (confirm("¿Desea borrar el item "+ itemName+"?")) {
+                        item.remove()
+                    }
+                }
+                item.appendChild(eliminar)
+                listado.appendChild(item)
+                e.preventDefault();
+            }
+        }
+
+
+
+
+
+        function $(elemento) {
+            return document.getElementById(elemento);
+        }
+    </script>
+</body>
+</html>

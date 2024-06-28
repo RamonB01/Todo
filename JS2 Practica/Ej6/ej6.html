@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej 6</title>
+</head>
+<body>
+    
+    <form action="" id="formulario">
+        <label for="">Nombre</label><br>
+        <input type="text" id="nombre" max="50"><br>
+        <label for="">Apellido</label><br>
+        <input type="text" id="apellido" max="50"><br>
+        <label for="">Edad</label><br>
+        <input type="number" id="edad"><br>
+        <label for="">Altura</label><br>
+        <input type="number" id="altura"><br>
+        <label for="">Email</label><br>
+        <input type="text" id="email"><br> <br>
+        <button type="submit">Enviar</button>
+        
+        <p id="mensaje">Validación</p>
+        
+    </form>
+    
+    
+    <script>
+        
+        const formulario = $("formulario")
+        const nombre = $("nombre")
+        const apellido = $("apellido")
+        const edad = $("edad")
+        const altura = $("altura")
+        const email = $("email")
+        const mensaje = $("mensaje")
+
+        formulario.addEventListener("submit", (e) => {
+            e.preventDefault()
+            mensaje.style.color = "red"
+            if (formulario["nombre"].value === ""){
+                mensaje.innerText = "Nombre Vacio"
+            } else if (formulario["apellido"].value === ""){
+                mensaje.innerText = "Apellido Vacio"
+            } else if (formulario["edad"].value < 0){
+                mensaje.innerText = "No puede ingresar numeros negativos"
+            } else if (formulario["edad"].value < 18){
+                mensaje.innerText = "No puede ser menor de Edad"
+            } else if (formulario["altura"].value < 0){
+                mensaje.innerText = "No puede ingresar numeros negativos"
+            } else if (formulario["altura"].value >= 230){
+                mensaje.innerText = "No puede ingresar numeros mayores y/o igual a 230(cm)"
+            } else if (formulario["email"].value === ""){
+                mensaje.innerText = "Email Vacio"
+            } else if (!formulario["email"].value.includes("@")){
+                mensaje.innerText = 'El email debe contener "@"'
+            } else {mensaje.innerHTML = "Todo Correcto"; mensaje.style.color = "green"}
+            
+        })
+
+
+
+    
+        function $(elemento) {
+            return document.getElementById(elemento)
+        }
+        
+    </script>
+</body>
+</html>

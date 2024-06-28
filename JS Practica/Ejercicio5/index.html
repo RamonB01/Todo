@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+</head>
+<body>
+
+    <p id="prede">Predeterminado</p>
+    <label for="">Seleccione Color de Texto:</label>
+    <select name="" id="colorT">
+        <option value="" selected disabled>Color Texto</option>
+        <option value="blue">Azul</option>
+        <option value="yellow">Amarillo</option>
+        <option value="red">Rojo</option>
+        <option value="green">Verde</option>
+    </select><br>
+    <label for="">Seleccione Color de Fondo:</label>
+    <select name="" id="colorF">
+        <option value="" selected disabled>Color Fondo</option>
+        <option value="blue">Azul</option>
+        <option value="yellow">Amarillo</option>
+        <option value="red">Rojo</option>
+        <option value="green">Verde</option>
+    </select>
+    <script>
+
+        const prede = $("prede")
+        const colorT = $("colorT")
+        const colorF = $("colorF")
+
+        colorT.onchange =()=>{
+            prede.style.color = colorT.value
+        }
+
+        colorF.onchange =()=>{
+            prede.style.backgroundColor = colorF.value
+        }
+
+        function $(elemento){
+            return document.getElementById(elemento)
+        }
+    </script>
+</body>
+</html>
