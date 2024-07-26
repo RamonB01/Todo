@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="numero">10</p> <br>
+    <button id="incre" onclick="incrementar()">Incrementar</button>
+    <button id="decre" onclick="decrementar()">Decrementar</button>
+    <script>
+        let numero = document.getElementById("numero")
+        let incre = document.getElementById("incre")
+        let decre = document.getElementById("decre")
+
+
+        function incrementar(){
+            if(numero.innerText < 20){
+                numero.innerText = parseInt(numero.innerText) + 1
+            }else{
+                incre.disabled=true
+            }
+        }
+
+        function decrementar(){
+            if(numero.innerText > 0){
+                numero.innerText = parseInt(numero.innerText) - 2
+            }else{
+                decre.disabled=true
+            }
+        }
+
+    </script>
+</body>
+</html>
